@@ -1,6 +1,5 @@
 # chrome-extensions
 
-[![CI](https://github.com/gardusig/chrome-extensions/actions/workflows/ci.yml/badge.svg)](https://github.com/gardusig/chrome-extensions/actions/workflows/ci.yml)
 [![Node](https://img.shields.io/badge/node-22.x-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
