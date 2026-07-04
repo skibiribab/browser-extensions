@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- **Node.js 22.x** — CI runs via [gardusig/github-pipelines](https://github.com/gardusig/github-pipelines) (`docker/chrome-extensions.dockerfile`)
+- **Node.js 22.x** — CI runs outside this repo (central Docker pipelines)
 - **Chrome or Chromium** with Developer Mode for unpacked extensions
 
 ## Clone and install
