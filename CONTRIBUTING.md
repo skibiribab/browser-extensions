@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- **Node.js 22.x** (see [`.github/workflows/ci.yml`](.github/workflows/ci.yml))
+- **Node.js 22.x** — CI runs outside this repo (central Docker pipelines)
 - **Chrome or Chromium** with Developer Mode for unpacked extensions
 
 ## Clone and install
