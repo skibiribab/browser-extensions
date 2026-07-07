@@ -4,8 +4,8 @@
   "description": "Workspace for Chrome extensions (MV3).",
   "private": true,
   "scripts": {
-    "build": "vite build && cp extensions/recorder/manifest.json extensions/recorder/dist/manifest.json",
-    "setup:browser": "npm run build && node scripts/setup-browser.mjs",
+    "build": "vite build && cp manifest.json dist/manifest.json",
+    "setup:browser": "npm run build && node src/dev/setup-browser.mjs",
     "dev": "vite build --watch",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
