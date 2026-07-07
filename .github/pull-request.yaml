@@ -1,5 +1,4 @@
 repo: gardusig/chrome-extensions
-dockerfile: docker/chrome-extensions.dockerfile
 jobs:
 - id: lint
   name: Repo lint
