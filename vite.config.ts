@@ -2,7 +2,7 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
 
-const extensionRoot = resolve(fileURLToPath(new URL(".", import.meta.url)), "extensions/recorder");
+const extensionRoot = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   root: extensionRoot,
