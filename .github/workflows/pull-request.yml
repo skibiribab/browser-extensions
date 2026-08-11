@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   pipeline:
-    uses: gardusig/cli/.github/workflows/lib/pull-request-router.yml@main
+    uses: gardusig/control-plane/.github/workflows/lib/pull-request-router.yml@main
     with:
       repo_slug: browser-extensions
       repository: gardusig/browser-extensions
