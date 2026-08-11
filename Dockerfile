@@ -1,4 +1,4 @@
-# Multi-stage CI for gardusig/chrome-extensions — lint → structure → unit → build
+# Multi-stage CI for gardusig/browser-extensions — lint → structure → unit → build
 FROM node:22-slim AS lint
 
 ENV PUPPETEER_SKIP_DOWNLOAD=true

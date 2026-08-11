@@ -10,7 +10,7 @@ This workspace holds one or more Chrome extensions under **`extensions/<name>/`*
 ## Repository layout (what matters for builds)
 
 ```text
-chrome-extensions/          ← repository root; always run npm commands here
+browser-extensions/          ← repository root; always run npm commands here
 ├── package.json            ← shared scripts: build, test, lint
 ├── vite.config.ts          ← build config (currently targets one extension root)
 ├── extensions/

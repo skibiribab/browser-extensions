@@ -8,8 +8,8 @@
 ## Clone and install
 
 ```bash
-git clone https://github.com/gardusig/chrome-extensions.git
-cd chrome-extensions
+git clone https://github.com/gardusig/browser-extensions.git
+cd browser-extensions
 npm ci
 ```
 

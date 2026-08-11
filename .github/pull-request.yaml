@@ -1,4 +1,4 @@
-repo: gardusig/chrome-extensions
+repo: gardusig/browser-extensions
 jobs:
 - id: lint
   name: Repo lint
