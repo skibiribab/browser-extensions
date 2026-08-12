@@ -1,18 +1,19 @@
 # Browser-extensions conventions
 
-Workspace of browser extensions. Each extension lives under `extensions/` with its own source and build output.
+Workspace of browser extensions. Client-side, mostly no backend.
 
 ## Structure
 
-- `extensions/<name>/` — one extension per folder.
-- `src/` — shared lib (background, content, options, popup).
-- `tests/` — tests.
-- `docs/` — development + release docs.
+- `src/lib/` — the real, browser-agnostic logic (tests nested).
+- `src/chrome/` — Chrome adapter: MV3 manifest, entrypoints, build (tests nested).
+- `src/firefox/` — Firefox adapter: MV2 manifest, entrypoints, build (tests nested).
+- `docker/` — CI Dockerfile (lint → structure → unit → build).
 
 ## Rules
 
-- Manifest V3; currently Chrome-first, cross-browser (Firefox) planned.
-- Run the PR pipeline (docker targets `lint` / `repo-hygiene` / `unit-test` / `build`) before merging — `test.yml` routes it through the `control-plane` PR router.
+- Real logic lives in `src/lib/` only; each browser adapts it.
+- AI-assisted features (e.g., chat helper in Slack) are exploratory.
+- The PR pipeline routes through the `control-plane` pull-request-router (builds `docker/Dockerfile` targets).
 - Theme: `GitHub Dark Default`.
 
 ## CI

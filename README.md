@@ -1,65 +1,30 @@
 # browser-extensions
 
-[![Node](https://img.shields.io/badge/node-22.x-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
-This repository is a **workspace for browser extensions**. Each extension's real logic lives in `core/` (shared, browser-agnostic) with thin per-browser adapters in `chrome/` and `firefox/`.
+Browser tools that integrate with any website UI — client-side, mostly no backend. The real, browser-agnostic logic lives in `src/lib/`; each browser gets a thin adapter.
 
 ## Focus
 
 Three pillars:
 
-- **Core** — the real, shared extension logic (browser-agnostic; "talking with ChatGPT is the same shit").
-- **Chrome** — the Chrome adapter + manifest + build.
-- **Firefox** — the Firefox adapter + manifest + build.
+- **lib** — the real, shared extension logic (browser-agnostic; e.g., "talk with ChatGPT is the same shit").
+- **chrome** — the Chrome adapter (MV3 manifest + entrypoints + build).
+- **firefox** — the Firefox adapter (MV2 manifest + entrypoints + build).
+
+## Structure
+
+```text
+src/
+  lib/        shared browser-agnostic logic (+ tests)
+  chrome/     Chrome adapter: MV3 manifest, entrypoints (background/content/options/popup), build (+ tests)
+  firefox/    Firefox adapter: MV2 manifest, entrypoints, build (+ tests)
+docker/       Dockerfile (CI pipeline)
+docs/
+```
+
+AI-assisted features (e.g., a chat helper in Slack) are exploratory. The per-browser adapters/builds are tracked as issues.
 
 ## Current extensions
 
-| Extension                                     | Description                                                              |
-| --------------------------------------------- | ------------------------------------------------------------------------ |
-| [**Recorder**](extensions/recorder/README.md) | Timer-based page snapshots, IndexedDB pipeline, export zip when stopped. |
-
-Recorder docs: [recording format](docs/recorder-recording-format.md) · [execution flow](docs/recorder-execution-flow.md) · [smoke test](docs/recorder-install-verify.md).
-
-## Documentation
-
-### Getting started
-
-| Document                                                             | Use when…                                                                                                                 |
-| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| [docs/local-development.md](docs/local-development.md)               | You want to **build** an extension from this repo and **load it unpacked** in Chrome (developer workflow).                |
-| [docs/chrome-web-store-release.md](docs/chrome-web-store-release.md) | You want to **publish** an extension to the Chrome Web Store **or install** a published build on **your Google profile**. |
-| [CONTRIBUTING.md](CONTRIBUTING.md)                                   | You’re changing the repo, CI, or adding another extension under `extensions/`.                                            |
-
-### Recorder extension
-
-| Document                                                                     | Contents                                                                                             |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [docs/recorder-system-design.md](docs/recorder-system-design.md)             | Architecture: Chrome processes, components, queue + worker, growth metrics, high/low-level diagrams. |
-| [docs/recorder-recording-format.md](docs/recorder-recording-format.md)       | Exported zip naming, folder layout, content/metadata/request files, IndexedDB overview.              |
-| [docs/recorder-execution-flow.md](docs/recorder-execution-flow.md)           | Start/stop, polling, dedupe, worker, merge, export, clear, force-stop.                               |
-| [docs/recorder-merged-graph-schema.md](docs/recorder-merged-graph-schema.md) | Logical vertices/edges, root pointer, ledger trim, examples.                                         |
-| [docs/recorder-install-verify.md](docs/recorder-install-verify.md)           | Short smoke test after loading unpacked Recorder.                                                    |
-| [docs/recorder-debug.md](docs/recorder-debug.md)                             | Service worker, queue, IndexedDB, and capture-debug workflow for empty or partial exports.           |
-
-### Repository direction
-
-| Document                                             | Contents                                                                               |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [docs/monorepo-roadmap.md](docs/monorepo-roadmap.md) | Optional future layout (`apps/` / `packages/`) if multiple extensions share more code. |
-
-## Quick start (from repository root)
-
-```bash
-npm ci
-npm run build
-npm run setup:browser
-```
-
-Then in Chrome → **Extensions** → **Load unpacked** → select **`extensions/recorder/dist/`** (see [docs/local-development.md](docs/local-development.md) and [CONTRIBUTING.md](CONTRIBUTING.md)).
-
-**Publish or install from the store:** [docs/chrome-web-store-release.md](docs/chrome-web-store-release.md). **Doc index:** [Documentation](#documentation).
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, checks, and how to add another extension under `extensions/`.
+| Extension | Status |
+|---|---|
+| Recorder | logic in `src/lib/`; Chrome adapter in `src/chrome/` (migration in progress via issues) |
