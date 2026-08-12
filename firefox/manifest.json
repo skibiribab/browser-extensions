@@ -1,0 +1,9 @@
+{
+  "manifest_version": 2,
+  "name": "core extension placeholder",
+  "version": "0.0.0",
+  "description": "Firefox adapter over core/ — populate via the Firefox issues.",
+  "permissions": [],
+  "background": { "scripts": ["background.js"] },
+  "browser_action": { "default_popup": "popup.html" }
+}
