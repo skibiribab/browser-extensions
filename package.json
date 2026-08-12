@@ -1,7 +1,7 @@
 {
   "name": "browser-extensions",
   "version": "1.0.0",
-  "description": "Workspace for Chrome extensions (MV3).",
+  "description": "Browser tools \u2014 shared lib + chrome/firefox adapters.",
   "private": true,
   "scripts": {
     "build": "vite build && cp src/chrome/manifest.json dist/manifest.json",
@@ -22,7 +22,7 @@
     "url": "git+https://github.com/gardusig/browser-extensions.git"
   },
   "keywords": [
-    "chrome-extension",
+    "browser-extension",
     "recorder",
     "network"
   ],
