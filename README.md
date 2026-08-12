@@ -3,7 +3,15 @@
 [![Node](https://img.shields.io/badge/node-22.x-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-This repository is a **workspace for Chrome extensions** (Manifest V3). Each extension lives under [`extensions/`](extensions/) with its own source and build output.
+This repository is a **workspace for browser extensions**. Each extension's real logic lives in `core/` (shared, browser-agnostic) with thin per-browser adapters in `chrome/` and `firefox/`.
+
+## Focus
+
+Three pillars:
+
+- **Core** — the real, shared extension logic (browser-agnostic; "talking with ChatGPT is the same shit").
+- **Chrome** — the Chrome adapter + manifest + build.
+- **Firefox** — the Firefox adapter + manifest + build.
 
 ## Current extensions
 
