@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gardusig/browser-extensions.git"
+    "url": "git+https://github.com/skibiribab/browser-extensions.git"
   },
   "keywords": [
     "browser-extension",
@@ -30,9 +30,9 @@
   "license": "MIT",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/gardusig/browser-extensions/issues"
+    "url": "https://github.com/skibiribab/browser-extensions/issues"
   },
-  "homepage": "https://github.com/gardusig/browser-extensions#readme",
+  "homepage": "https://github.com/skibiribab/browser-extensions#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/chrome": "^0.1.38",
