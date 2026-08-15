@@ -1,4 +1,4 @@
-repo: gardusig/browser-extensions
+repo: acate-suki/browser-extensions
 jobs:
 - id: lint
   name: Repo lint

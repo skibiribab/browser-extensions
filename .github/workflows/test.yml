@@ -1,25 +1,31 @@
-name: Pull request
+name: Test
 
 on:
   pull_request:
     branches: [main]
-    types: [opened, synchronize, reopened]
-
-concurrency:
-  group: pr-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
 
 permissions:
   contents: read
 
 jobs:
-  pipeline:
-    uses: gardusig/control-plane/.github/workflows/lib/pull-request-router.yml@main
-    with:
-      repo_slug: browser-extensions
-      repository: gardusig/browser-extensions
-      ref: ${{ github.event.pull_request.head.ref }}
-      sha: ${{ github.event.pull_request.head.sha }}
-      pr_number: ${{ github.event.pull_request.number }}
-    secrets:
-      CENTRAL_PIPELINE_PAT: ${{ secrets.CENTRAL_PIPELINE_PAT }}
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --global --no-audit --no-fund markdownlint-cli@0.49.1
+      - run: markdownlint '**/*.md'
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build

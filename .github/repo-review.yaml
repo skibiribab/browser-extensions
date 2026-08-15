@@ -1,5 +1,5 @@
 repo_slug: browser-extensions
-repository: gardusig/browser-extensions
+repository: acate-suki/browser-extensions
 description: Chrome extensions package review.
 jobs:
   - id: unit-test
